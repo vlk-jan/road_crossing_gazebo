@@ -1,0 +1,49 @@
+Bootstrap: docker
+From: ros:noetic-perception
+
+%post
+    export XDG_CACHE_HOME=/tmp/singularity-cache # pip cache
+
+    # Install Apt packages
+    packages="
+        gcc
+        g++
+        bridge-utils
+        build-essential
+        htop
+        net-tools
+        screen
+        sshpass
+        tmux
+        vim
+        wget
+        curl
+        git
+        python3-pip
+        python3-catkin-tools
+        ros-noetic-ros-numpy
+        ros-noetic-jsk-rviz-plugins
+        ros-noetic-rviz
+        ros-noetic-navigation
+        ros-noetic-husky-*
+        ros-noetic-image-transport-codecs"
+
+    apt update
+    apt install -y ${packages}
+
+    dir=$(pwd)
+    echo "Current directory: ${dir}"
+
+    # Setup ROS workspace
+    ws=${dir}/ws/
+    mkdir -p "${ws}/src"
+    cd "${ws}/src"
+    git clone https://github.com/ctu-vras/robingas_mission_gazebo.git
+    wstool init
+    wstool merge robingas_mission_gazebo/dependencies.rosinstall
+    wstool up -j 4
+    cd "${ws}"
+    catkin init
+    catkin config --extend /opt/ros/noetic/
+    catkin config --cmake-args -DCMAKE_BUILD_TYPE=Release
+    catkin build -c
