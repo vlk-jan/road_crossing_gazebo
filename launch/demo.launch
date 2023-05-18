@@ -3,6 +3,8 @@
     <arg name="device" default="cuda" doc="Device to run tensor operations on: cpu or cuda"/>
     <arg name="rviz" default="true" doc="Launch RViz for data visualization or not"/>
     <arg name="world" default="$(dirname)/../worlds/farmWith1CropRow.world"/>
+    <arg name="segment_file" default="road_segments.pyc"/>
+    <arg name="road_info_file" default="road_ifno_twoway.pyc"/>
 <!--    <arg name="world" default="$(dirname)/../worlds/simcity.world"/>-->
 <!--    <arg name="world" default="$(dirname)/../worlds/simcity_dynamic.world"/>-->
 <!--    <arg name="world" default="$(dirname)/../worlds/emptyfarm.world"/>-->
@@ -14,5 +16,8 @@
     </include>
 
     <!-- Road crossing -->
-    <include file="$(find road_crossing)/launch/services.launch"/>
+    <include file="$(find road_crossing)/launch/services.launch">
+        <arg name="segment_file" value="$(arg segment_file)"/>
+        <arg name="road_info_file" value="$(arg road_info_file)"/>
+    </include>
 </launch>
