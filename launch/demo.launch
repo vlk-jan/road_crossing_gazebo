@@ -5,9 +5,6 @@
     <arg name="world" default="$(dirname)/../worlds/farmWith1CropRow.world"/>
     <arg name="segment_file" default="road_segments.pyc"/>
     <arg name="road_info_file" default="road_info_twoway.pyc"/>
-<!--    <arg name="world" default="$(dirname)/../worlds/simcity.world"/>-->
-<!--    <arg name="world" default="$(dirname)/../worlds/simcity_dynamic.world"/>-->
-<!--    <arg name="world" default="$(dirname)/../worlds/emptyfarm.world"/>-->
 
     <!-- Gazebo world and spawn Husky robot -->
     <include file="$(dirname)/husky_gazebo.launch">
