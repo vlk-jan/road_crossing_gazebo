@@ -38,9 +38,9 @@ From: ros:noetic-perception
     ws=${dir}/ws/
     mkdir -p "${ws}/src"
     cd "${ws}/src"
-    git clone https://github.com/ctu-vras/robingas_mission_gazebo.git
+    git clone https://github.com/vlk-jan/road_crossing_gazebo.git
     wstool init
-    wstool merge robingas_mission_gazebo/dependencies.rosinstall
+    wstool merge road_crossing_gazebo/dependencies.rosinstall
     wstool up -j 4
     cd "${ws}"
     catkin init
