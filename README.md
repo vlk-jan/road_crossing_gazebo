@@ -74,9 +74,9 @@ where `<scenario>` is one of the following:
     ![](./docs/scene1.png)
 - 2
     ![](./docs/scene2.png)
-    - 2.1 - the $a_{y}=1.7\:\rm{m\,s^{-1}}$
-    - 2.2 - the $a_{y}=1\:\rm{m\,s^{-1}}$
-    - 2.3 - the $a_{y}=2.3\:\rm{m\,s^{-1}}$
+    - 2.1 - the $a_{y}=1.7\ \rm{m s^{-2}}$
+    - 2.2 - the $a_{y}=1\ \rm{m s^{-2}}$
+    - 2.3 - the $a_{y}=2.3\ \rm{m s^{-2}}$
 - 3
     ![](./docs/scene3.png)
 - 4
